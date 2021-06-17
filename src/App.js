@@ -1,11 +1,21 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Navbar from '../src/components/navbar/navbar.component';
+import MainScreen from '../src/screens/MainScreen/MainScreen.component';
+import Footer from './components/footer/footer.component';
+
 
 function App() {
-  return (
-    <div className="App">
 
-    </div>
+  const user = null;
+
+  return (
+    <Router>
+      <Navbar/>
+      <Route path = '/' component = { MainScreen } exact />
+      <Footer/>
+    </Router>
   );
 }
 
