@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './navbar.styles.scss';
-import {Nav} from 'react-bootstrap'
-import {BsBellFill} from "react-icons/bs";
-import {IoMdArrowDropdown} from "react-icons/io";
-
+import { Nav } from 'react-bootstrap'
+import { BsBellFill } from "react-icons/bs";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { ProfileScreen } from '../../screens/ProfileScreen/ProfileScreen.component';
 
 function Navbar() {
 
     const [showBar, handleShowBar] = useState(false);
+    const history = useHistory();
 
 
    useEffect(() => {
@@ -66,6 +68,8 @@ function Navbar() {
                     </Nav.Link>
                     <Nav.Link>
                         <img 
+                            //push to profile page
+                            onClick = {() => history.push('/profile')}
                             className = "nav__avatar"
                             src = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                             alt = "Netflix Avatar"

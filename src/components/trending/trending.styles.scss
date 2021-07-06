@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Staatliches", cursive;
+  letter-spacing: 4px;
 }
 
 .trending {
@@ -8,15 +12,18 @@
 }
 
 .trending__title {
+  text-align: center;
   z-index: -2;
   background: transparent;
+  letter-spacing: 4px;
+  color: rgb(212, 40, 40);
 }
 
 .trending__posters {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 50px 10px;
+  padding: 80px 15px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -49,6 +56,11 @@
   max-height: 150px;
   object-fit: contain;
   border-radius: 5px;
+  filter: grayscale(100%);
+  transition: ease-in 0.5s;
+  &:hover {
+    filter: grayscale(20%);
+  }
 }
 
 .trending__poster__image:hover ~ .trending__poster__description {
@@ -57,6 +69,32 @@
 
 .trending__posterLarge__image {
   max-height: 400px;
+
+  &:hover {
+    filter: grayscale(20%);
+  }
+}
+
+.red {
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+    hue-rotate(-50deg) saturate(200%) contrast(1);
+  filter: grayscale(100%) brightness(40%) sepia(90%) hue-rotate(-45deg)
+    saturate(400%) contrast(0.9);
+  transition: ease-in 0.2s;
+  &:hover {
+    filter: grayscale(20%);
+  }
+}
+
+.reder {
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+    hue-rotate(-50deg) saturate(200%) contrast(1);
+  filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(-45deg)
+    saturate(200%) contrast(0.9);
+  transition: ease-in 0.2s;
+  &:hover {
+    filter: grayscale(20%);
+  }
 }
 
 .trending__posterLarge {

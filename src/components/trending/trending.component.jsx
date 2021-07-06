@@ -58,8 +58,8 @@ function Trending({ title, fetchUrl, isLargeRow }) {
                     {movies.map(movie => (
                         <div
                         key = {movie.id}  
-                        onClick = {() => handleClick(movie)}      
-                        className = {`trending__poster ${isLargeRow && "trending__posterLarge"}`} 
+                        onClick = {() => handleClick(movie)}     
+                        className = {`trending__poster ${isLargeRow && "trending__posterLarge"} ${movie.id % 2 === 0 && "red"} ${movie.id % 3 === 0 && "reder"} `} 
                         >
                         <img 
                             src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 .banner {
   color: rgb(255, 255, 255);
   object-fit: contain;
   height: 80vh;
+  filter: grayscale(20%);
 }
 
 .banner__contents {
@@ -11,12 +14,13 @@
   background: linear-gradient(
     180deg,
     rgba(17, 17, 17, 0.596),
-    rgba(17, 17, 17, 0.171),
+    rgba(163, 37, 37, 0.356),
     rgba(17, 17, 17, 0.596),
   );
 }
 
 .banner__title {
+  letter-spacing: 4px;
   font-size: 5rem;
   font-weight: bold;
   padding-bottom: 0.5rem;
@@ -51,7 +55,9 @@
   font-weight: 200;
   max-width: 360px;
   height: 80px;
-  letter-spacing: 0.1rem;
+  h4 {
+    font-family: 'Lato', sans-serif !important;
+  }
 }
 
 .banner--fadeBottom {

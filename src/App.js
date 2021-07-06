@@ -8,7 +8,7 @@ import Footer from './components/footer/footer.component';
 import { auth } from './firebase';
 import LoginScreen from './screens/LoginScreen/LoginScreen.component';
 import { login, logout, selectUser } from './redux/slices/userSlice';
-
+import ProfileScreen from './screens/ProfileScreen/ProfileScreen.component';
 
 function App() {
 
@@ -38,15 +38,15 @@ function App() {
 
   return (
     <Router>
-    
       {!user ? (
         <LoginScreen/>
       ) : (
       <React.Fragment>
-      <Navbar/>
-      <Switch>
-        <Route component = { MainScreen } exact />
-      </Switch>
+        <Navbar/>
+        <Switch>
+          <Route path = '/' component = { MainScreen } exact />
+          <Route path = '/profile' component = { ProfileScreen } exact />
+        </Switch>
       </React.Fragment>
       )}
       <Footer/>
