@@ -5,15 +5,15 @@ const initialState = { user: null }
 //accepts a single configuration object parameter
 export const userSlice = createSlice({
   //prefix  
-  name: 'user',
+  name: "user",
   initialState,
   //intended to handle a specific action type
   reducers: {
     login: (state, action) => {
-        state.user = action.payload
+        state.user = action.payload;
     },
     logout: (state) => {
-        state.user = null
+        state.user = null;
     }
   },
 })

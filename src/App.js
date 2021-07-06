@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import  {useDispatch} from 'react-redux'
+import  {useDispatch, useSelector} from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navbar from '../src/components/navbar/navbar.component';
@@ -7,13 +7,13 @@ import MainScreen from '../src/screens/MainScreen/MainScreen.component';
 import Footer from './components/footer/footer.component';
 import { auth } from './firebase';
 import LoginScreen from './screens/LoginScreen/LoginScreen.component';
-import { login, logout } from './redux/slices/userSlice';
+import { login, logout, selectUser } from './redux/slices/userSlice';
 
 
 function App() {
 
   //initial state
-  const user = null;
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   //Auth state change listener to user object
@@ -42,10 +42,12 @@ function App() {
       {!user ? (
         <LoginScreen/>
       ) : (
+      <React.Fragment>
+      <Navbar/>
       <Switch>
-        <Navbar/>
-        <Route path = '/' component = { MainScreen } exact />
+        <Route component = { MainScreen } exact />
       </Switch>
+      </React.Fragment>
       )}
       <Footer/>
     </Router>

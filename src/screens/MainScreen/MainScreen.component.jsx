@@ -1,8 +1,8 @@
 import React from 'react';
 import {Row} from 'react-bootstrap';
-
+import Navbar from '../../components/navbar/navbar.component';
 import Trending from '../../components/trending/trending.component';
-import requests from '../../../src/requests'
+import requests from '../../requests.js';
 import { Container } from 'react-bootstrap';
 import Banner from '../../components/banner/banner.component';
 
