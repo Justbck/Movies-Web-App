@@ -1,36 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import './ProfileScreen.styles.scss';
-import { Card, Button } from 'react-bootstrap';
-import { selectUser } from '../../redux/slices/userSlice'
-import { auth } from '../../firebase';
+import { Card } from 'react-bootstrap';
 
 const ProfileScreen = () => {
-
-    const user = useSelector(selectUser);
-    //convert name
-    let name = user.email
-    var i = name.indexOf('@');
-    name = name.substring(0, i != -1 ? i : name.length);
-
-
     return (
         <div className = 'profile__wrapper'>
         <Card className="profile__card bg-dark text-white">
-          <Card.Title> {name} </Card.Title>
+        <Card.Img src= "holder.js/100px270" alt="Card image" />
+        <Card.ImgOverlay>
+          <Card.Title>Card title</Card.Title>
           <Card.Text>
-            Your Bio
-            <br/>
-            <input type = 'text'/>
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
           </Card.Text>
-          <Card.Text>Your plan</Card.Text>
-          
-          {/*triggers auth logout listener from actions*/}
-          <Button onClick = {() => auth.signOut()}>
-            Sign Out
-          </Button>
+          <Card.Text>Last updated 3 mins ago</Card.Text>
+        </Card.ImgOverlay>
       </Card>
-      </div>
+        </div>
     );
 };
 
