@@ -1,6 +1,9 @@
 import React from 'react';
 import './ProfileScreen.styles.scss';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { auth } from '../../firebase';
+import StripeButton from '../../components/stripe-button/stripe-button.component';
+
 
 const ProfileScreen = () => {
     return (
@@ -15,6 +18,12 @@ const ProfileScreen = () => {
           </Card.Text>
           <Card.Text>Last updated 3 mins ago</Card.Text>
         </Card.ImgOverlay>
+        <Button
+        onClick = {() => auth.signOut()}
+      >
+        Sign Out
+      </Button>
+      <StripeButton/>
       </Card>
         </div>
     );

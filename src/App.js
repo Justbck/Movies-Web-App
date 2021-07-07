@@ -28,13 +28,13 @@ function App() {
         }));
       } else {
         //log out - reset user back to null
-        dispatch(logout)
+        dispatch(logout())
       }
     });
     //component is unmount  ? old listener needs to be detached
     //& new one must be attached
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

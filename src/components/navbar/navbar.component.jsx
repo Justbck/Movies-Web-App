@@ -27,7 +27,7 @@ function Navbar() {
     return (
         <Nav className = {`nav ${showBar && "nav__dark" }`}>
             <div className = "nav__left">
-                <Nav.Link href="#home">
+                <Nav.Link href="/">
                     <img 
                         className = "nav__logo"
                         src = "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
