@@ -4,6 +4,7 @@ import './ProfileScreen.styles.scss';
 import { Card, Button } from 'react-bootstrap';
 import { selectUser } from '../../redux/slices/userSlice'
 import { auth } from '../../firebase';
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
 const ProfileScreen = () => {
 
@@ -24,6 +25,7 @@ const ProfileScreen = () => {
             <input type = 'text'/>
           </Card.Text>
           <Card.Text>Your plan</Card.Text>
+          <StripeCheckoutButton/>
           
           {/*triggers auth logout listener from actions*/}
           <Button onClick = {() => auth.signOut()}>
