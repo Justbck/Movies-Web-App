@@ -36,19 +36,10 @@ function Navbar() {
                 </Nav.Link>
 
                 <div className = "nav__links">
-                    <Nav.Link>
+                    <Nav.Link href="/">
                         Home
                     </Nav.Link>
-                    <Nav.Link>
-                        Series
-                    </Nav.Link>
-                    <Nav.Link>
-                        Films
-                    </Nav.Link>
-                    <Nav.Link>
-                        New & Popular
-                    </Nav.Link>
-                    <Nav.Link>
+                    <Nav.Link href="/list">
                         My List
                     </Nav.Link>
                 </div>
