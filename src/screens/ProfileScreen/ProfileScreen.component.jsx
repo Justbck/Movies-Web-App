@@ -18,6 +18,7 @@ const ProfileScreen = () => {
                   </Card.Text>
                   <Card.Text>Last updated 3 mins ago</Card.Text>
                 </Card.ImgOverlay>
+                <PlansScreen/>
                 <Button
                   onClick = {() => auth.signOut()}
                 >
