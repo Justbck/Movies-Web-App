@@ -18,7 +18,7 @@ function PlansScreen () {
                 products[productDoc.id] = productDoc.data();
                 const priceSnap = await productDoc.ref.collection
                 ("prices").get();
-                priceSnap.docs(price => {
+                priceSnap.docs.forEach(price => {
                     products[productDoc.id].prices = {
                         priceId: price.id,
                         priceData: price.data()
@@ -34,6 +34,20 @@ function PlansScreen () {
 
     return (
         <div className = "plansScreen">
+            {/*descructoring*/}
+            {Object.entries(products).map(([productId, productData]) => {
+                //is user subscribtion on?
+                return (
+                    <div>
+                        <h5>{productData.name}</h5>
+                        <h6>{productData.description}</h6>
+
+                        <button>
+                            Subscribe
+                        </button>
+                    </div>
+                );
+            })}
         </div>
     );
 }

@@ -3,7 +3,7 @@ import './ProfileScreen.styles.scss';
 import { Card, Button } from 'react-bootstrap';
 import { auth } from '../../firebase';
 import StripeButton from '../../components/stripe-button/stripe-button.component';
-
+import PlansScreen from '../PlansScreen/PlansScreen';
 
 const ProfileScreen = () => {
     return (
