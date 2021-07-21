@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import db from '../../firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/slices/userSlice';
 import '../PlansScreen/PlansScreen.styles.scss';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 function PlansScreen () {
 
     const [products, setProducts] = useState([]);
+    //pull user from redux store
+    const user = useSelector(selectUser);
     
     useEffect(() => {
         db.collection('products')
@@ -30,7 +35,34 @@ function PlansScreen () {
         });
     },[]);
 
-    console.log(products)
+    const loadCheckout = async (priceId)  => {
+        const docRef = await db
+        .collection("customers")
+        .doc(user.uid).collection("checkout_sessions")
+        //add checkout session collection to db
+        .add({
+            price: priceId,
+            success_url: window.location.origin,
+            cancel_url: window.location.origin,
+        });
+
+        docRef.onSnapshot(async(snap) => {
+            //desturture
+            const { error, sessionId } = snap.data();
+
+            //alert user on errors
+            if (error) {
+                alert(`An error occured: ${error.message}`)
+            }
+
+            //redirect user to checkout once there is a new session
+            if (sessionId) {
+                const stripe = await loadStripe("pk_test_51Gz33eA6exbqwJuMV78XM1ACmRlDdJ4HDIHG5XMKLsbFHE6OTyJm2rKpnHDoyie6ox3OORnfByGSXBF3gLrO9Pz100TAPd8HMp")
+            
+            stripe.redirectToCheckout({ sessionId });
+            }
+        })
+    };
 
     return (
         <div className = "plansScreen">
@@ -42,7 +74,7 @@ function PlansScreen () {
                         <h5>{productData.name}</h5>
                         <h6>{productData.description}</h6>
 
-                        <button>
+                        <button onClick = {() => loadCheckout(productData.prices.priceId)}>
                             Subscribe
                         </button>
                     </div>
